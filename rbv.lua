@@ -17,10 +17,6 @@ local _humanoid  = character:WaitForChild("Humanoid")
 local _rootPart  = character:WaitForChild("HumanoidRootPart")
 local _cam = Workspace.CurrentCamera
 
-if game.PlaceId ~= 93978595733734 then
-    Players.LocalPlayer:Kick("[ROLL HUB] This map is not supported.")
-    error("[ROLL HUB] This map is not supported.")
-end
 
 local state = {
 	running = true,
