@@ -200,11 +200,13 @@ local state = {
 
 local UILib = getgenv().UILib_Dev
 if not UILib then
-    local okRead, src = pcall(readfile, "UILib.lua")
-    if not okRead or type(src) ~= "string" then
-        error("[ROLL HUB] UILib.lua tidak ditemukan di folder workspace executor.")
+    local ok, res = pcall(function()
+        return loadstring(game:HttpGet("https://raw.githubusercontent.com/rlllhub/rlllhub/refs/heads/main/LB.lua"))()
+    end)
+    if not ok or type(res) ~= "table" then
+        error("[ROLL HUB] Gagal load UILib: " .. tostring(res))
     end
-    UILib = loadstring(src)()
+    UILib = res
 end
 
 local ICONS = {
